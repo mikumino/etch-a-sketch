@@ -1,0 +1,16 @@
+
+
+.container {
+    display: grid;
+    width: 960px;
+    height: 960px;
+    border: 1px solid black;
+}
+
+.square {
+    border: 1px solid gray;
+}
+
+.hovered {
+    background-color: black;
+}
