@@ -1,5 +1,5 @@
 // Grid creator
-function newGrid(size = 16, numSquares = 16) {
+function newGrid(size = 16) {
     // Creates the grid
     document.documentElement.style.setProperty('--size', size)
     let gridContainer = document.getElementById("container");
@@ -9,7 +9,7 @@ function newGrid(size = 16, numSquares = 16) {
     // Fills grid with number of squares needed
     let allSquares = Array.from(document.querySelectorAll('.square'));
     allSquares.forEach(square => square.remove());
-    squaredSquares = Math.pow(numSquares, 2);
+    squaredSquares = Math.pow(size, 2);
     for(let i = 0; i < squaredSquares; i++) {
         const squareDiv = document.createElement("div");
         squareDiv.classList.add("square");
@@ -28,7 +28,13 @@ function clearBoard() {
     hovered.forEach(hover => hover.classList.remove("hovered"));
     // Makes new grid from user input
     let gridSize = prompt("What size would you like your canvas? (minimum size: 2)");
-    newGrid(gridSize, gridSize);
+    // Checks if user inputs valid input
+    if(gridSize == null || gridSize < 2) {
+        newGrid();
+    }
+    else {
+        newGrid(gridSize);
+    }
     hover();
 }
 
