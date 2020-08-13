@@ -29,7 +29,7 @@ function clearBoard() {
     // Makes new grid from user input
     let gridSize = prompt("What size would you like your canvas? (minimum size: 2)");
     // Checks if user inputs valid input
-    if(gridSize == null || gridSize < 2) {
+    if(gridSize == null || gridSize < 2 || gridSize > 100) {
         newGrid();
     }
     else {
